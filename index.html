@@ -201,14 +201,31 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>作者：雨声敲敲<br>blog：blog.sina.com.cn/rainssong<br>homepage：rainsgameworld.sinaapp.com/<br>weibo：weibo.com/rainssong<br>转载请注明</p>
-<p>搜了一些相关帖子，发现有的讲解不全，有的误导观众，故而总结与此。以供新手学习。</p>
-<p>1.初始化和类型检查<br>Array没有类型检查，但不代表Array不支持类型定义，Look：<br>        var arr:Array.<number> = [1, 2, 3, 4, 5,”a”];<br>//这样写的好处是——有代码提示！坏处是——依旧不规范，因为编译器不会提示你”a”元素的错误。还是要自己多加注意。</number></p>
-<p>Vector有类型检查，但是也可以没有！Look：<br>                var vec:Vector.<number> = new <number>[1,2,3,4,5,”a”];//报错！<br>                var vec:Vector.&lt;<em>&gt; = new &lt;</em>&gt;[1,2,3,4,5,”a”];//不报错但不建议</number></number></p>
-<p>2.效率<br>没有绝对高下之分，总的来说，Array处理复杂类型时更快（如Object），Vector处理基础类型（如Number String）更快。具体资料可自行搜索。</p>
-<p>3.功能<br>Array有sortOn方法，可以排序复杂对象。<br>Vector可以固定长度，防止出错。</p>
-<p>4.转换<br>Array转为Vector十分简单：<br><code>var vec:Vector.&lt;Number&gt; = Vector.&lt;Number&gt;(arr);</code></p>
-<p>Vector转Array却很麻烦，需要自行遍历，但事实上你基本没有必要将Vector转换为Array，大部分时候只需要这么做就好了：<br>    var arr:Array.<number> = vec;</number></p>
+<pre><code>搜了一些相关帖子，发现有的讲解不全，有的误导观众，故而总结与此。以供新手学习。
 
+<span class="number">1.</span>初始化和类型检查
+<span class="built_in">Array</span>没有类型检查，但不代表<span class="built_in">Array</span>不支持类型定义，Look：
+<span class="keyword">var</span> arr:<span class="built_in">Array</span>.&lt;<span class="built_in">Number</span>&gt; = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>,<span class="string">"a"</span>];
+<span class="comment">//这样写的好处是——有代码提示！坏处是——依旧不规范，因为编译器不会提示你"a"元素的错误。还是要自己多加注意。</span>
+
+Vector有类型检查，但是也可以没有！Look：
+<span class="keyword">var</span> vec:Vector.&lt;<span class="built_in">Number</span>&gt; = <span class="keyword">new</span> &lt;<span class="built_in">Number</span>&gt;[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="string">"a"</span>];<span class="comment">//报错！</span>
+<span class="keyword">var</span> vec:Vector.&lt;*&gt; = <span class="keyword">new</span> &lt;*&gt;[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="string">"a"</span>];<span class="comment">//不报错但不建议</span>
+
+<span class="number">2.</span>效率
+没有绝对高下之分，总的来说，<span class="built_in">Array</span>处理复杂类型时更快（如<span class="built_in">Object</span>），Vector处理基础类型（如<span class="built_in">Number</span> <span class="built_in">String</span>）更快。具体资料可自行搜索。
+
+<span class="number">3.</span>功能
+<span class="built_in">Array</span>有sortOn方法，可以排序复杂对象。
+Vector可以固定长度，防止出错。
+
+<span class="number">4.</span>转换
+<span class="built_in">Array</span>转为Vector十分简单：
+<span class="keyword">var</span> vec:Vector.&lt;<span class="built_in">Number</span>&gt; = Vector.&lt;<span class="built_in">Number</span>&gt;(arr);
+
+Vector转<span class="built_in">Array</span>却很麻烦，需要自行遍历，但事实上你基本没有必要将Vector转换为<span class="built_in">Array</span>，大部分时候只需要这么做就好了：
+<span class="keyword">var</span> arr:<span class="built_in">Array</span>.&lt;<span class="built_in">Number</span>&gt; = vec;
+</code></pre>
         
           <!-- show an end symbol if the article is fully displayed -->
           <hr/>
