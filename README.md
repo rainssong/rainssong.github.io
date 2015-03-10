@@ -1,2 +1,0 @@
-# rainssong.github.io
-GitBlog
