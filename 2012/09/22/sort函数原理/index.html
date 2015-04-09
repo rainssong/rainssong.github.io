@@ -3,17 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>RainsGitBlog</title>
+  <title>sort函数原理 | RainsGitBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="雨的Git博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="RainsGitBlog">
-<meta property="og:url" content="http://rainssong.github.io/tags/Array/index.html">
+  <meta name="description" content="Array的sort函数可以对数组进行排序。他究竟是怎么工作的呢？
+我们利用自定义比较函数对其进行测试，看看能不能发现什么。
+使用 比较函数的原理 （摘自Adobe说明）：此方法使用语法和参数顺序 Array.sort(compareFunction, sortOptions)，其参数定义如下：compareFunction - 一个用来确定数组元素排序顺序的比较函数。此参数是可选的。比较函数应该">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sort函数原理">
+<meta property="og:url" content="http://rainssong.github.io/2012/09/22/sort函数原理/index.html">
 <meta property="og:site_name" content="RainsGitBlog">
-<meta property="og:description" content="雨的Git博客">
+<meta property="og:description" content="Array的sort函数可以对数组进行排序。他究竟是怎么工作的呢？
+我们利用自定义比较函数对其进行测试，看看能不能发现什么。
+使用 比较函数的原理 （摘自Adobe说明）：此方法使用语法和参数顺序 Array.sort(compareFunction, sortOptions)，其参数定义如下：compareFunction - 一个用来确定数组元素排序顺序的比较函数。此参数是可选的。比较函数应该">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RainsGitBlog">
-<meta name="twitter:description" content="雨的Git博客">
+<meta name="twitter:title" content="sort函数原理">
+<meta name="twitter:description" content="Array的sort函数可以对数组进行排序。他究竟是怎么工作的呢？
+我们利用自定义比较函数对其进行测试，看看能不能发现什么。
+使用 比较函数的原理 （摘自Adobe说明）：此方法使用语法和参数顺序 Array.sort(compareFunction, sortOptions)，其参数定义如下：compareFunction - 一个用来确定数组元素排序顺序的比较函数。此参数是可选的。比较函数应该">
   
     <link rel="alternative" href="/atom.xml" title="RainsGitBlog" type="application/atom+xml">
   
@@ -172,180 +178,141 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-sort函数原理" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/01/12/是时候总结一下Vector和Array了/" class="archive-article-date">
-  	<time datetime="2015-01-12T09:32:00.000Z" itemprop="datePublished">1月 12</time>
+    <div class="article-meta">
+      <a href="/2012/09/22/sort函数原理/" class="article-date">
+  	<time datetime="2012-09-22T11:11:00.000Z" itemprop="datePublished">2012-09-22</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/12/是时候总结一下Vector和Array了/">是时候总结一下Vector和Array了</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      sort函数原理
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info">
+        
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array/">Array</a></li></ul>
 	</div>
 
-          
+        
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/AS3/">AS3</a>
 	</div>
 
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Array的sort函数可以对数组进行排序。他究竟是怎么工作的呢？</p>
+<p>我们利用自定义比较函数对其进行测试，看看能不能发现什么。</p>
+<p>使用 比较函数的原理 （摘自Adobe说明）：<br>此方法使用语法和参数顺序 Array.sort(compareFunction, sortOptions)，其参数定义如下：<br>compareFunction - 一个用来确定数组元素排序顺序的比较函数。此参数是可选的。比较函数应该用两个参数进行比较。给定元素 A 和 B，compareFunction 的结果可以具有负值、0 或正值：<br>若返回值为负，则表示 A 在排序后的序列中出现在 B 之前。<br>若返回值为 0，则表示 A 和 B 具有相同的排序顺序。<br>若返回值为正，则表示 A 在排序后的序列中出现在 B 之后。 </p>
+<p>请注意，这里有一个 错误 ，正确说法应该是<br>若返回值&lt;=-1，则表示 A 在排序后的序列中出现在 B 之前。<br>若返回值&gt;-1 &amp;&amp; <1，则表示 a="" 和="" b="" 具有相同的排序顺序。="" 若返回值="">=1，则表示 A 在排序后的序列中出现在 B 之后。 </1，则表示></p>
+<p>原因我猜想可能是 compareFunction 的返回值会被取整吧。</p>
+<p>实验：<br>新建一个函数来做测试。让每次都返回1，于是A就肯定会去B后面</p>
+<pre><code><span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">sortTrace</span><span class="params">(arr:Array)</span><span class="type">:Array</span>
+</span>{
+  <span class="keyword">var</span> outputArr:Array = arr.slice();
+  outputArr.sort
+  (
+    <span class="function"><span class="keyword">function</span><span class="params">(a:*,b:*)</span><span class="type">:Number</span>
+    </span>{
+      <span class="keyword">trace</span>(a, b);
+      <span class="keyword">return</span> <span class="number">1</span>;
+    }
+  );
+  <span class="keyword">trace</span>(<span class="string">"currentArr"</span>,outputArr);
+  <span class="keyword">return</span> outputArr;
+}
+</code></pre><p>然后sortTrace([1,2,3,4,5]) </p>
+<p>输出的是：//后为猜想的数组结果<br>2 3 //13245<br>5 3<br>4 3<br>1 3 //31245<br>2 3 //这里重复比较了，估计adobe的工程师加班了？<br>1 4 //34215<br>5 4<br>2 4<br>1 4<br>1 2<br>1 5 //34251<br>2 5 //34521</p>
+<p>currentArr 3,4,5,2,1</p>
+<p>结论：<br>根据输出猜测是快速排序法</p>
+<p>注意：<br>不要用sort来进行随机排序，因为快速排序法是一种不稳定的排序法！因此无法保证每个数获得相同的待遇，会导致每种结果出现的概率不尽相同。 </p>
+
+        
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/09/28/判断AS3程序是否为debug版本/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          判断AS3程序是否为debug版本
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/09/17/Air开发iOS应用的适配/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Air开发iOS应用的适配</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2013/11/12/rain的as3心得/" class="archive-article-date">
-  	<time datetime="2013-11-12T08:37:00.000Z" itemprop="datePublished">11月 12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/11/12/rain的as3心得/">rain的as3心得</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array/">Array</a></li></ul>
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/AS3/">AS3</a>
-	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2012" class="archive-year">2012</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2012/09/22/sort函数原理/" class="archive-article-date">
-  	<time datetime="2012-09-22T11:11:00.000Z" itemprop="datePublished">9月 22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2012/09/22/sort函数原理/">sort函数原理</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array/">Array</a></li></ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/AS3/">AS3</a>
-	</div>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="sort函数原理" data-title="sort函数原理" data-url="http://rainssong.github.io/2012/09/22/sort函数原理/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2012/09/17/Air开发iOS应用的适配/" class="archive-article-date">
-  	<time datetime="2012-09-17T03:15:00.000Z" itemprop="datePublished">9月 17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2012/09/17/Air开发iOS应用的适配/">Air开发iOS应用的适配</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array/">Array</a></li></ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/AS3/">AS3</a>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 </div>
       <footer id="footer">
   <div class="outer">

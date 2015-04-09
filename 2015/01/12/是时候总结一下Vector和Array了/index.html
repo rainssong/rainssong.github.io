@@ -3,17 +3,32 @@
 <head>
   <meta charset="utf-8">
   
-  <title>RainsGitBlog</title>
+  <title>是时候总结一下Vector和Array了 | RainsGitBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="雨的Git博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="RainsGitBlog">
-<meta property="og:url" content="http://rainssong.github.io/tags/Array/index.html">
+  <meta name="description" content="作者：雨声敲敲blog：blog.sina.com.cn/rainssonghomepage：rainsgameworld.sinaapp.com/weibo：weibo.com/rainssong转载请注明
+搜了一些相关帖子，发现有的讲解不全，有的误导观众，故而总结与此。以供新手学习。
+
+1.初始化和类型检查
+Array没有类型检查，但不代表Array不支持类型定义，Look：
+var arr:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="是时候总结一下Vector和Array了">
+<meta property="og:url" content="http://rainssong.github.io/2015/01/12/是时候总结一下Vector和Array了/index.html">
 <meta property="og:site_name" content="RainsGitBlog">
-<meta property="og:description" content="雨的Git博客">
+<meta property="og:description" content="作者：雨声敲敲blog：blog.sina.com.cn/rainssonghomepage：rainsgameworld.sinaapp.com/weibo：weibo.com/rainssong转载请注明
+搜了一些相关帖子，发现有的讲解不全，有的误导观众，故而总结与此。以供新手学习。
+
+1.初始化和类型检查
+Array没有类型检查，但不代表Array不支持类型定义，Look：
+var arr:">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RainsGitBlog">
-<meta name="twitter:description" content="雨的Git博客">
+<meta name="twitter:title" content="是时候总结一下Vector和Array了">
+<meta name="twitter:description" content="作者：雨声敲敲blog：blog.sina.com.cn/rainssonghomepage：rainsgameworld.sinaapp.com/weibo：weibo.com/rainssong转载请注明
+搜了一些相关帖子，发现有的讲解不全，有的误导观众，故而总结与此。以供新手学习。
+
+1.初始化和类型检查
+Array没有类型检查，但不代表Array不支持类型定义，Look：
+var arr:">
   
     <link rel="alternative" href="/atom.xml" title="RainsGitBlog" type="application/atom+xml">
   
@@ -172,180 +187,141 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-是时候总结一下Vector和Array了" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/01/12/是时候总结一下Vector和Array了/" class="archive-article-date">
-  	<time datetime="2015-01-12T09:32:00.000Z" itemprop="datePublished">1月 12</time>
+    <div class="article-meta">
+      <a href="/2015/01/12/是时候总结一下Vector和Array了/" class="article-date">
+  	<time datetime="2015-01-12T09:32:00.000Z" itemprop="datePublished">2015-01-12</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/12/是时候总结一下Vector和Array了/">是时候总结一下Vector和Array了</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      是时候总结一下Vector和Array了
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info">
+        
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array/">Array</a></li></ul>
 	</div>
 
-          
+        
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/AS3/">AS3</a>
 	</div>
 
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作者：雨声敲敲<br>blog：blog.sina.com.cn/rainssong<br>homepage：rainsgameworld.sinaapp.com/<br>weibo：weibo.com/rainssong<br>转载请注明</p>
+<pre><code>搜了一些相关帖子，发现有的讲解不全，有的误导观众，故而总结与此。以供新手学习。
+
+<span class="number">1.</span>初始化和类型检查
+<span class="built_in">Array</span>没有类型检查，但不代表<span class="built_in">Array</span>不支持类型定义，Look：
+<span class="keyword">var</span> arr:<span class="built_in">Array</span>.&lt;<span class="built_in">Number</span>&gt; = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>,<span class="string">"a"</span>];
+<span class="comment">//这样写的好处是——有代码提示！坏处是——依旧不规范，因为编译器不会提示你"a"元素的错误。还是要自己多加注意。</span>
+
+Vector有类型检查，但是也可以没有！Look：
+<span class="keyword">var</span> vec:Vector.&lt;<span class="built_in">Number</span>&gt; = <span class="keyword">new</span> &lt;<span class="built_in">Number</span>&gt;[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="string">"a"</span>];<span class="comment">//报错！</span>
+<span class="keyword">var</span> vec:Vector.&lt;*&gt; = <span class="keyword">new</span> &lt;*&gt;[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="string">"a"</span>];<span class="comment">//不报错但不建议</span>
+
+<span class="number">2.</span>效率
+没有绝对高下之分，总的来说，<span class="built_in">Array</span>处理复杂类型时更快（如<span class="built_in">Object</span>），Vector处理基础类型（如<span class="built_in">Number</span> <span class="built_in">String</span>）更快。具体资料可自行搜索。
+
+<span class="number">3.</span>功能
+<span class="built_in">Array</span>有sortOn方法，可以排序复杂对象。
+Vector可以固定长度，防止出错。
+
+<span class="number">4.</span>转换
+<span class="built_in">Array</span>转为Vector十分简单：
+<span class="keyword">var</span> vec:Vector.&lt;<span class="built_in">Number</span>&gt; = Vector.&lt;<span class="built_in">Number</span>&gt;(arr);
+
+Vector转<span class="built_in">Array</span>却很麻烦，需要自行遍历，但事实上你基本没有必要将Vector转换为<span class="built_in">Array</span>，大部分时候只需要这么做就好了：
+<span class="keyword">var</span> arr:<span class="built_in">Array</span>.&lt;<span class="built_in">Number</span>&gt; = vec;
+</code></pre>
+        
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/04/02/解决FlashDevelop的代码提示快捷键冲突/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          解决FlashDevelop的代码提示快捷键冲突
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/10/29/提取swf中的ByteArray/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">提取swf中的ByteArray </div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2013/11/12/rain的as3心得/" class="archive-article-date">
-  	<time datetime="2013-11-12T08:37:00.000Z" itemprop="datePublished">11月 12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/11/12/rain的as3心得/">rain的as3心得</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array/">Array</a></li></ul>
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/AS3/">AS3</a>
-	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2012" class="archive-year">2012</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2012/09/22/sort函数原理/" class="archive-article-date">
-  	<time datetime="2012-09-22T11:11:00.000Z" itemprop="datePublished">9月 22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2012/09/22/sort函数原理/">sort函数原理</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array/">Array</a></li></ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/AS3/">AS3</a>
-	</div>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="是时候总结一下Vector和Array了" data-title="是时候总结一下Vector和Array了" data-url="http://rainssong.github.io/2015/01/12/是时候总结一下Vector和Array了/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2012/09/17/Air开发iOS应用的适配/" class="archive-article-date">
-  	<time datetime="2012-09-17T03:15:00.000Z" itemprop="datePublished">9月 17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2012/09/17/Air开发iOS应用的适配/">Air开发iOS应用的适配</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array/">Array</a></li></ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/AS3/">AS3</a>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 </div>
       <footer id="footer">
   <div class="outer">

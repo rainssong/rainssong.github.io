@@ -3,17 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>RainsGitBlog</title>
+  <title>提取swf中的ByteArray  | RainsGitBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="雨的Git博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="RainsGitBlog">
-<meta property="og:url" content="http://rainssong.github.io/tags/Array/index.html">
+  <meta name="description" content="作者：雨声敲敲blog： blog.sina.com.cn/rainssonghomepage： rainsgameworld.sinaapp.com/weibo： weibo.com/rainssong 
+市面上的Flash反编译软件，能提取代码、动画、位图声音，却不能提取swf中的ByteArray以及ByteArrayAsset（资源被Embed以后即成为 ByteArrayAsset ）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="提取swf中的ByteArray ">
+<meta property="og:url" content="http://rainssong.github.io/2014/10/29/提取swf中的ByteArray/index.html">
 <meta property="og:site_name" content="RainsGitBlog">
-<meta property="og:description" content="雨的Git博客">
+<meta property="og:description" content="作者：雨声敲敲blog： blog.sina.com.cn/rainssonghomepage： rainsgameworld.sinaapp.com/weibo： weibo.com/rainssong 
+市面上的Flash反编译软件，能提取代码、动画、位图声音，却不能提取swf中的ByteArray以及ByteArrayAsset（资源被Embed以后即成为 ByteArrayAsset ）。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RainsGitBlog">
-<meta name="twitter:description" content="雨的Git博客">
+<meta name="twitter:title" content="提取swf中的ByteArray ">
+<meta name="twitter:description" content="作者：雨声敲敲blog： blog.sina.com.cn/rainssonghomepage： rainsgameworld.sinaapp.com/weibo： weibo.com/rainssong 
+市面上的Flash反编译软件，能提取代码、动画、位图声音，却不能提取swf中的ByteArray以及ByteArrayAsset（资源被Embed以后即成为 ByteArrayAsset ）。">
   
     <link rel="alternative" href="/atom.xml" title="RainsGitBlog" type="application/atom+xml">
   
@@ -172,180 +175,126 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-提取swf中的ByteArray" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/01/12/是时候总结一下Vector和Array了/" class="archive-article-date">
-  	<time datetime="2015-01-12T09:32:00.000Z" itemprop="datePublished">1月 12</time>
+    <div class="article-meta">
+      <a href="/2014/10/29/提取swf中的ByteArray/" class="article-date">
+  	<time datetime="2014-10-29T02:00:00.000Z" itemprop="datePublished">2014-10-29</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/12/是时候总结一下Vector和Array了/">是时候总结一下Vector和Array了</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      提取swf中的ByteArray 
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array/">Array</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li></ul>
 	</div>
 
-          
+        
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/AS3/">AS3</a>
 	</div>
 
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作者：雨声敲敲<br>blog： blog.sina.com.cn/rainssong<br>homepage： rainsgameworld.sinaapp.com/<br>weibo： weibo.com/rainssong </p>
+<p>市面上的Flash反编译软件，能提取代码、动画、位图声音，却不能提取swf中的ByteArray以及ByteArrayAsset（资源被Embed以后即成为 ByteArrayAsset ）。于是只好自己动手。经过反复试验，现归纳步骤如下。 </p>
+<p>1.加载swf：</p>
+<pre><code>_loader.load(<span class="keyword">new</span> URLRequest(<span class="string">"GyakuSai5.swf"</span>));
+</code></pre><p>2.根据类名获取数据（类名在反编译时已经找到了）：</p>
+<pre><code>var <span class="keyword">myClass</span>:<span class="keyword">Class</span> = _loader.contentLoaderInfo.applicationDomain.getDefinition(<span class="string">"[类名]"</span>) <span class="keyword">as</span> <span class="keyword">Class</span>;
+var byteArray: ByteArrayAsset = <span class="keyword">new</span> <span class="keyword">myClass</span> asByteArrayAsset ;
+</code></pre><p>第一句看不懂的自行搜索</p>
+<p>3.导出文件，用FileStream类将byteArray导出为文件。如果byteArray是加密过的，还得解密。</p>
+<p>用此法提取了《逆转裁判5 在线试玩版》的脚本，见：<a href="http://blog.sina.com.cn/s/blog_59fc39980102vbl5.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_59fc39980102vbl5.html</a></p>
+
+        
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/01/12/是时候总结一下Vector和Array了/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          是时候总结一下Vector和Array了
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/06/06/让ane支持android-x86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">让ane支持android-x86的快速方法</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2013/11/12/rain的as3心得/" class="archive-article-date">
-  	<time datetime="2013-11-12T08:37:00.000Z" itemprop="datePublished">11月 12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/11/12/rain的as3心得/">rain的as3心得</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array/">Array</a></li></ul>
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/AS3/">AS3</a>
-	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2012" class="archive-year">2012</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2012/09/22/sort函数原理/" class="archive-article-date">
-  	<time datetime="2012-09-22T11:11:00.000Z" itemprop="datePublished">9月 22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2012/09/22/sort函数原理/">sort函数原理</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array/">Array</a></li></ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/AS3/">AS3</a>
-	</div>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="提取swf中的ByteArray" data-title="提取swf中的ByteArray " data-url="http://rainssong.github.io/2014/10/29/提取swf中的ByteArray/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2012/09/17/Air开发iOS应用的适配/" class="archive-article-date">
-  	<time datetime="2012-09-17T03:15:00.000Z" itemprop="datePublished">9月 17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2012/09/17/Air开发iOS应用的适配/">Air开发iOS应用的适配</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array/">Array</a></li></ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/AS3/">AS3</a>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 </div>
       <footer id="footer">
   <div class="outer">
