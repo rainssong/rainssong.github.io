@@ -108,7 +108,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/AI/" style="font-size: 10px;">AI</a><a href="/tags/ANE/" style="font-size: 10px;">ANE</a><a href="/tags/AS3/" style="font-size: 20px;">AS3</a><a href="/tags/AVG/" style="font-size: 10px;">AVG</a><a href="/tags/Adobe/" style="font-size: 10px;">Adobe</a><a href="/tags/Air/" style="font-size: 13.33px;">Air</a><a href="/tags/Android/" style="font-size: 10px;">Android</a><a href="/tags/Array/" style="font-size: 16.67px;">Array</a><a href="/tags/Date/" style="font-size: 10px;">Date</a><a href="/tags/FlashDevelop/" style="font-size: 10px;">FlashDevelop</a><a href="/tags/Game/" style="font-size: 10px;">Game</a><a href="/tags/GameDevelop/" style="font-size: 13.33px;">GameDevelop</a><a href="/tags/RainAvgEngine/" style="font-size: 10px;">RainAvgEngine</a><a href="/tags/Robot/" style="font-size: 10px;">Robot</a><a href="/tags/iOS/" style="font-size: 10px;">iOS</a><a href="/tags/优化/" style="font-size: 10px;">优化</a><a href="/tags/算法/" style="font-size: 13.33px;">算法</a><a href="/tags/递归/" style="font-size: 10px;">递归</a><a href="/tags/随机/" style="font-size: 10px;">随机</a>
+						<a href="/tags/AI/" style="font-size: 12.5px;">AI</a><a href="/tags/AIR/" style="font-size: 10px;">AIR</a><a href="/tags/ANE/" style="font-size: 10px;">ANE</a><a href="/tags/AS3/" style="font-size: 20px;">AS3</a><a href="/tags/AVG/" style="font-size: 10px;">AVG</a><a href="/tags/Adobe/" style="font-size: 10px;">Adobe</a><a href="/tags/Air/" style="font-size: 12.5px;">Air</a><a href="/tags/Android/" style="font-size: 10px;">Android</a><a href="/tags/Array/" style="font-size: 15px;">Array</a><a href="/tags/Date/" style="font-size: 10px;">Date</a><a href="/tags/Egret/" style="font-size: 10px;">Egret</a><a href="/tags/FlashDevelop/" style="font-size: 10px;">FlashDevelop</a><a href="/tags/Game/" style="font-size: 10px;">Game</a><a href="/tags/GameDevelop/" style="font-size: 17.5px;">GameDevelop</a><a href="/tags/Haxe/" style="font-size: 10px;">Haxe</a><a href="/tags/Html5/" style="font-size: 10px;">Html5</a><a href="/tags/Math/" style="font-size: 10px;">Math</a><a href="/tags/RainAvgEngine/" style="font-size: 10px;">RainAvgEngine</a><a href="/tags/RainUI/" style="font-size: 10px;">RainUI</a><a href="/tags/Robot/" style="font-size: 10px;">Robot</a><a href="/tags/iOS/" style="font-size: 12.5px;">iOS</a><a href="/tags/优化/" style="font-size: 10px;">优化</a><a href="/tags/算法/" style="font-size: 12.5px;">算法</a><a href="/tags/递归/" style="font-size: 10px;">递归</a><a href="/tags/随机/" style="font-size: 10px;">随机</a>
 					</div>
 				</section>
 				
@@ -173,6 +173,500 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-提取swf中的ByteArray" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/10/29/提取swf中的ByteArray/" class="article-date">
+  	<time datetime="2014-10-29T02:00:00.000Z" itemprop="datePublished">2014-10-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/29/提取swf中的ByteArray/">提取swf中的ByteArray </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作者：雨声敲敲<br>blog： blog.sina.com.cn/rainssong<br>homepage： rainsgameworld.sinaapp.com/<br>weibo： weibo.com/rainssong </p>
+<p>市面上的Flash反编译软件，能提取代码、动画、位图声音，却不能提取swf中的ByteArray以及ByteArrayAsset（资源被Embed以后即成为 ByteArrayAsset ）。于是只好自己动手。经过反复试验，现归纳步骤如下。 </p>
+<p>1.加载swf：</p>
+<pre><code>_loader.load(<span class="keyword">new</span> URLRequest(<span class="string">"GyakuSai5.swf"</span>));
+</code></pre><p>2.根据类名获取数据（类名在反编译时已经找到了）：</p>
+<pre><code>var <span class="keyword">myClass</span>:<span class="keyword">Class</span> = _loader.contentLoaderInfo.applicationDomain.getDefinition(<span class="string">"[类名]"</span>) <span class="keyword">as</span> <span class="keyword">Class</span>;
+var byteArray: ByteArrayAsset = <span class="keyword">new</span> <span class="keyword">myClass</span> asByteArrayAsset ;
+</code></pre><p>第一句看不懂的自行搜索</p>
+<p>3.导出文件，用FileStream类将byteArray导出为文件。如果byteArray是加密过的，还得解密。</p>
+<p>用此法提取了《逆转裁判5 在线试玩版》的脚本，见：<a href="http://blog.sina.com.cn/s/blog_59fc39980102vbl5.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_59fc39980102vbl5.html</a></p>
+
+        
+          <!-- show an end symbol if the article is fully displayed -->
+          <hr/>
+          <p class="article-more-link">
+            <a>end</a>
+          </p>
+        
+      
+    </div>
+    
+    <div class="article-info">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/AS3/">AS3</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-让ane支持android-x86" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/06/06/让ane支持android-x86/" class="article-date">
+  	<time datetime="2014-06-06T10:44:00.000Z" itemprop="datePublished">2014-06-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/06/06/让ane支持android-x86/">让ane支持android-x86的快速方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.用rar打开ane，找到extension.xml并打开<br>2.复制【Android-ARM】字段,重命名为【Android-x86】<br>3.找到Android-ARM文件夹<br>4.复制并重命名为Android-x86</p>
+<p>这样有两个好处：<br>1.无需原文件<br>2.无需重新打包ANE</p>
+
+        
+          <!-- show an end symbol if the article is fully displayed -->
+          <hr/>
+          <p class="article-more-link">
+            <a>end</a>
+          </p>
+        
+      
+    </div>
+    
+    <div class="article-info">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ANE/">ANE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/AS3/">AS3</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-AS3里的日期" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/05/23/AS3里的日期/" class="article-date">
+  	<time datetime="2014-05-22T18:08:00.000Z" itemprop="datePublished">2014-05-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/05/23/AS3里的日期/">as3里的日期</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这么乱七八糟的命名有意义吗？</p>
+<p>  toDateStringFri May 23 2014<br>  toLocaleDateStringFri May 23 2014<br>  toLocaleStringFri May 23 2014 02:02:00 AM<br>  toLocaleTimeString02:02:00 AM<br>  toStringFri May 23 02:02:00 GMT+0800 2014<br>  toTimeString02:02:00 GMT+0800<br>  toUTCStringThu May 22 18:02:00 2014 UTC</p>
+
+        
+          <!-- show an end symbol if the article is fully displayed -->
+          <hr/>
+          <p class="article-more-link">
+            <a>end</a>
+          </p>
+        
+      
+    </div>
+    
+    <div class="article-info">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Date/">Date</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/AS3/">AS3</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-Rain的AS3心得" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2013/11/12/Rain的AS3心得/" class="article-date">
+  	<time datetime="2013-11-12T08:37:00.000Z" itemprop="datePublished">2013-11-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/11/12/Rain的AS3心得/">Rain的AS3心得</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>理论篇：<br>· 用Vector存基础类型，用Array存复杂类型。<br>· 优先考虑代码可读性，计算量大时才考虑效率<br>· 勿滥用设计模式，设计模式是方法，不是目的。<br>· 需要复用的类要尽量保证独立性——避免主动调用外部类。它与外部的通信通过接口（函数和公有变量）和事件来完成。<br>· 使用事件总线EventBus负责接受和处理全局事件（eventDispatcher单例），可以轻松实现MVC。<br>· 资源用静态类管理。<br>· 每个类都实现destroy接口，用以删除所有引用和内部侦听器。.<br>· 会重复使用的特定数值/字符串，使用静态常量来存储，可以减少很多麻烦。<br>· 包名分清楚分细，不是极度相似的类不要重名，避免冲突和误调</p>
+<p>技巧篇:</p>
+<p>· 快速创建Vector的方法如下：new [1,2,3,4,5,6,7]<br>· 优先使用scrollRect而非mask<br>· 用单例管理类来获取单例。既减少了代码量，又使得类不受单例所限</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getSingleton</span><span class="params">(Type:Class)</span><span class="type">:*</span>  
+</span>{
+    _dictionary[Type] ||= <span class="keyword">new</span> Type();
+    <span class="keyword">return</span> _dictionary[Type] <span class="keyword">as</span> Type;
+}
+</code></pre><p>· 对于视图类，可以侦听REMOVED_FROM_STAGE事件后调用destroy，实现自动销毁<br>· 对于判断Number是否有值要小心： </p>
+<pre><code><span class="comment">//不要这样，会把负数都过滤掉 </span>
+<span class="keyword">if</span><span class="comment">(temp)</span>{} 
+<span class="comment">//建议这样 </span>
+<span class="keyword">if</span><span class="comment">(!isNaN(temp)</span>){}
+</code></pre><p>· 善用getter和setter，以保护数据安全（必要的时候还要return data.clone()）和规范<br>· MonsterDebugger是个好东西<br>· Object和*作为数据类型是不严谨的，如果要复用，最好有具体的类型<br>· 初始化工作不在变量声明时进行，而是单独提取出来放入自定义函数init()进行，这样就可以重复初始化。<br>· 视图对象侦听Event.ADDED_TO_STAGE是个好习惯，在添加到舞台后就可以访问stage了。</p>
+<p>· 命名规范化：</p>
+<pre><code><span class="comment">//变量 下划线(私有时)+变量名(骆驼命名法)+类型说明(类名缩写/人为归类/不写)</span>
+<span class="keyword">private</span> <span class="keyword">var</span> _mainMenuView:Sprite
+<span class="comment">//常量 全大写+下划线</span>
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">const</span> MAIN_MENU:String=<span class="string">"mainMenu"</span>;
+<span class="comment">//包名 驼峰法(仅app名称大写)</span>
+me.rainssong.AppName.view
+<span class="comment">//类名 帕斯卡命名法+说明(人为分类)</span>
+MainMenuView
+事件名称避免重复，采用类名+事件名作为事件的type可避免重名
+</code></pre><p>· 给位图绑定类（尤其是被大量使用的位图），否则会被做为Shape使用影响效率</p>
+<p>· array.push.apply 比 array.concat快很多</p>
+<p>雨声敲敲<br>2013-11-12</p>
+
+        
+          <!-- show an end symbol if the article is fully displayed -->
+          <hr/>
+          <p class="article-more-link">
+            <a>end</a>
+          </p>
+        
+      
+    </div>
+    
+    <div class="article-info">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array/">Array</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/AS3/">AS3</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-Adobe系列软件更换语言和找不到扩展问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2013/10/29/Adobe系列软件更换语言和找不到扩展问题/" class="article-date">
+  	<time datetime="2013-10-29T09:05:00.000Z" itemprop="datePublished">2013-10-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/29/Adobe系列软件更换语言和找不到扩展问题/">Adobe系列软件更换语言和找不到扩展的问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Adobe软件即使是非多语言版也会自动检测语言包。利用这一特性我们可以轻松修改Adobe软件的语言 </p>
+<p>打个比方，Flash CS 6繁体版安装目录下有zh_TW文件夹。只要删除它Flash就会变成英文版，如果更换成一个简体中文包zh_CN就会变成简体中文版。</p>
+<p>问题是，在你替换之后， Flash CS知道自己是中文版了，但是Adobe Extension Manager不知道，它依旧会把扩展安装到台湾版的目录下导致扩展失效，比如Win7<br>C:\Users[用户名]\AppData\Local\Adobe\Flash CS6\zh_TW。</p>
+<p>解决方案：<br>1.C:\Users\ [ 用户名] \AppData\Local\Adobe\Flash CS6\zh_TW\Configuration下相应的扩展文件夹复制到 C:\Users[ 用户名] \AppData\Local\Adobe\Flash CS6\zh_CN\Configuration下。<br>2.再将 C:\Users\ [ 用户名] \AppData\Local\Adobe\Flash CS6\zh_TW\Configuration中WindowSWF文件夹复制到 C:\Users[ 用户名] \AppData\Local\Adobe\Flash CS6\zh_CN\Configuration下 </p>
+
+        
+          <!-- show an end symbol if the article is fully displayed -->
+          <hr/>
+          <p class="article-more-link">
+            <a>end</a>
+          </p>
+        
+      
+    </div>
+    
+    <div class="article-info">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/IT/">IT</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-效率最高的循环滚动" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2013/07/17/效率最高的循环滚动/" class="article-date">
+  	<time datetime="2013-07-17T09:12:00.000Z" itemprop="datePublished">2013-07-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/07/17/效率最高的循环滚动/">效率最高的循环滚动</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前在移动设备上做背景循环滚动，用BiltMask卡成马了。为了找到最佳的滚动策略，做了一些实验，发现卡马克什么的都是浮云，最优的还是修改scrollRect。于是将整个功能封装成了一个类： CycleSprite </p>
+<p>用法很简单：</p>
+<pre><code>var bmp: CycleSprite= <span class="keyword">new</span> CycleSprite(bitmapData,<span class="variable">width</span>,<span class="variable">height</span>);
+bmp.scrollX++;<span class="comment">//或者修改scrollRect; </span>
+</code></pre><p>Github：<br><a href="https://github.com/rainssong/RainsAsLib/blob/master/src/me/rainssong/display/CycleSprite.as" target="_blank" rel="external">https://github.com/rainssong/RainsAsLib/blob/master/src/me/rainssong/display/CycleSprite.as</a></p>
+
+        
+          <!-- show an end symbol if the article is fully displayed -->
+          <hr/>
+          <p class="article-more-link">
+            <a>end</a>
+          </p>
+        
+      
+    </div>
+    
+    <div class="article-info">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GameDevelop/">GameDevelop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/优化/">优化</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/AS3/">AS3</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-AS3中类型处理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2013/05/08/AS3中类型处理/" class="article-date">
+  	<time datetime="2013-05-08T11:51:00.000Z" itemprop="datePublished">2013-05-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/05/08/AS3中类型处理/">as3中类型处理：typeof,is,as,instanceof,getqualifiedclassname等 </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.is——判断对象/类是否属于某一类，返回布尔值<br>例：123 is Number<br>返回:true<br>例：int is Object<br>返回：true</p>
+<p>2.as——弱转换，不会丢失数据，仅在类型链有效（转换为父类对象）， 失败返回 null<br>例: 123 as uint<br>返回：123<br>例：123 as string<br>返回：null<br>注：在很多情况下，类型不符时编译器会自动进行弱转换</p>
+<p>3.Class(object)——强转换，可能丢失数据，适用范围较广，失败抛出错误<br>例：int(123.45)<br>返回 123</p>
+<p>4.typeof—— 以字符串形式返回对象的类型， 不推荐使用<br>例：typeof “test”<br>返回：”string”</p>
+<p>5.instanceof——和is相同，但不能判断接口， 不推荐使用 </p>
+<p>6.getDefinitionByName——根据类名获取类</p>
+<p>7.getQualifiedClassName——获取完整 类 名</p>
+<p>8.getQualifiedSuperclassName——获取完整 父类 名</p>
+<p>9.constructor根据对象获取类， 需要转换为Object对象否则编译不通过<br>例：obj1.constructor<br>返回：[class Object]</p>
+<p>雨声敲敲<br>2013-5-8</p>
+
+        
+          <!-- show an end symbol if the article is fully displayed -->
+          <hr/>
+          <p class="article-more-link">
+            <a>end</a>
+          </p>
+        
+      
+    </div>
+    
+    <div class="article-info">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/AS3/">AS3</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
   
     <article id="post-聊天机器人系统结构" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -385,536 +879,9 @@
 
 
   
-    <article id="post-sort函数原理" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2012/09/22/sort函数原理/" class="article-date">
-  	<time datetime="2012-09-22T11:11:00.000Z" itemprop="datePublished">2012-09-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/09/22/sort函数原理/">sort函数原理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Array的sort函数可以对数组进行排序。他究竟是怎么工作的呢？</p>
-<p>我们利用自定义比较函数对其进行测试，看看能不能发现什么。</p>
-<p>使用 比较函数的原理 （摘自Adobe说明）：<br>此方法使用语法和参数顺序 Array.sort(compareFunction, sortOptions)，其参数定义如下：<br>compareFunction - 一个用来确定数组元素排序顺序的比较函数。此参数是可选的。比较函数应该用两个参数进行比较。给定元素 A 和 B，compareFunction 的结果可以具有负值、0 或正值：<br>若返回值为负，则表示 A 在排序后的序列中出现在 B 之前。<br>若返回值为 0，则表示 A 和 B 具有相同的排序顺序。<br>若返回值为正，则表示 A 在排序后的序列中出现在 B 之后。 </p>
-<p>请注意，这里有一个 错误 ，正确说法应该是<br>若返回值&lt;=-1，则表示 A 在排序后的序列中出现在 B 之前。<br>若返回值&gt;-1 &amp;&amp; <1，则表示 a="" 和="" b="" 具有相同的排序顺序。="" 若返回值="">=1，则表示 A 在排序后的序列中出现在 B 之后。 </1，则表示></p>
-<p>原因我猜想可能是 compareFunction 的返回值会被取整吧。</p>
-<p>实验：<br>新建一个函数来做测试。让每次都返回1，于是A就肯定会去B后面</p>
-<pre><code><span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">sortTrace</span><span class="params">(arr:Array)</span><span class="type">:Array</span>
-</span>{
-  <span class="keyword">var</span> outputArr:Array = arr.slice();
-  outputArr.sort
-  (
-    <span class="function"><span class="keyword">function</span><span class="params">(a:*,b:*)</span><span class="type">:Number</span>
-    </span>{
-      <span class="keyword">trace</span>(a, b);
-      <span class="keyword">return</span> <span class="number">1</span>;
-    }
-  );
-  <span class="keyword">trace</span>(<span class="string">"currentArr"</span>,outputArr);
-  <span class="keyword">return</span> outputArr;
-}
-</code></pre><p>然后sortTrace([1,2,3,4,5]) </p>
-<p>输出的是：//后为猜想的数组结果<br>2 3 //13245<br>5 3<br>4 3<br>1 3 //31245<br>2 3 //这里重复比较了，估计adobe的工程师加班了？<br>1 4 //34215<br>5 4<br>2 4<br>1 4<br>1 2<br>1 5 //34251<br>2 5 //34521</p>
-<p>currentArr 3,4,5,2,1</p>
-<p>结论：<br>根据输出猜测是快速排序法</p>
-<p>注意：<br>不要用sort来进行随机排序，因为快速排序法是一种不稳定的排序法！因此无法保证每个数获得相同的待遇，会导致每种结果出现的概率不尽相同。 </p>
-
-        
-          <!-- show an end symbol if the article is fully displayed -->
-          <hr/>
-          <p class="article-more-link">
-            <a>end</a>
-          </p>
-        
-      
-    </div>
-    
-    <div class="article-info">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Array/">Array</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/AS3/">AS3</a>
-	</div>
-
-
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Air开发iOS应用的适配" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2012/09/17/Air开发iOS应用的适配/" class="article-date">
-  	<time datetime="2012-09-17T03:15:00.000Z" itemprop="datePublished">2012-09-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/09/17/Air开发iOS应用的适配/">Air开发iOS应用的适配</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一共有三个方案。</p>
-<p>1.告诉IOS本应用不支持高分。<br>只要调整应用配置的分辨率选项为standard。<br>（IOS下修改application.xml：<requesteddisplayresolution>standard</requesteddisplayresolution>）<br>此情况下，IOS会主动将分辨率调整至标准。使用此法应用的效率较高。</p>
-<p>2.告诉App主动放大至全屏。<br>调整应用配置的分辨率选项为high。<br>（ IOS下修改application.xml ：<requesteddisplayresolution>high</requesteddisplayresolution>）<br>另外要设置<br>stage.scaleMode = StageScaleMode.SHOW_ALL;（由于默认就是SHOW_ALL，不设亦可。不过为了表明你要缩放的决心，最好是写上）</p>
-<p>3.使用自适屏技术。<br>设stage.scaleMode = StageScaleMode.NO_SCALE;<br>侦听舞台的Resize事件<br>并对UI层和内容层分开处理</p>
-
-        
-          <!-- show an end symbol if the article is fully displayed -->
-          <hr/>
-          <p class="article-more-link">
-            <a>end</a>
-          </p>
-        
-      
-    </div>
-    
-    <div class="article-info">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Air/">Air</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/AS3/">AS3</a>
-	</div>
-
-
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-掷骰子与递归" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2012/09/04/掷骰子与递归/" class="article-date">
-  	<time datetime="2012-09-03T21:02:00.000Z" itemprop="datePublished">2012-09-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/09/04/掷骰子与递归/">掷骰子与递归</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近某老师提了一个问题，题意大概是在大富翁游戏中，每次扔一个骰子前进相应的步数，然后不断扔，那么踩到某一格的概率是多少？（假设地图上的格子无限延伸，不会循环）</p>
-<p>乍一看没有规定步数好像没法求吧？但是仔细想想，就算扔100次，踩到第一格的概率永远是1/6。说明在步数无穷的前提下，踩到某一格的概率是可求的。</p>
-<p>怎么求呢？如果使用排列组合的方法，掷三四次还行，次数一多就组合爆炸了。</p>
-<p>所以正着来不行，那就反着来，利用递归思想的话，我们就可以只考虑最后一步和第一步（中间的工作全都是重复的最后一步）。</p>
-<p>先看第一步，下面有七格：<br>[1] [2] [3] [4] [5] [6] [7]<br>走到第一格的概率是1/6。<br>走到第二格可能是先走到第一格（1/6）然后再扔出1（1/6），或者直接扔出2（1/6）。概率是1/6*1/6+1/6<br>走到第三格可能是先走到第一格后扔2，或者走到第二格后扔1（此情况已包括连扔三个1），或者直接扔3。概率是p(1)/6+p(2)/6+1/6<br>哦，看出规律了，那么不难推理出p(4)=p(3)+p(2)+p(1)+1/6=p(3)/6+p(2)/6+p(1)/6+p(0)/6<br>哈，第0格我们是百分之百踩到的，所以p(0)=1</p>
-<p>那么p(7)呢？要走到p(7)必须先走到1~6，所以p(7)=p(6)/6+p(5)/6+p(4)/6+p(3)/6+p(2)/6+p(1)/6<br>类推出：<br>p(x)=p(x-1)+p(x-2)+p(x-3)+p(x-4)+p(x-5)+p(x-6)</p>
-<p>问题得解。把算法化为代码就是这样：</p>
-<pre><code><span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">getDiceSumProbability</span><span class="params">(step:int)</span><span class="type">:Number</span>
-</span>{
-    <span class="comment">//直接读取结果，节省资源</span>
-    <span class="keyword">if</span> (resultArr[step])
-    <span class="keyword">return</span> resultArr[step];
-    <span class="keyword">if</span> (step == <span class="number">0</span>)
-    {
-        resultArr[step] = <span class="number">1</span>;
-        <span class="keyword">return</span> <span class="number">1</span>;
-    }
-    <span class="keyword">if</span> (step &lt;= <span class="number">6</span>)
-    {
-        <span class="keyword">var</span> probability:Number = <span class="number">0</span>;
-        <span class="keyword">for</span> (<span class="keyword">var</span> i:int = <span class="number">0</span>; i &lt; step; i++)
-        {
-            probability += getDiceSumProbability(i) / <span class="number">6</span>;
-        }
-        resultArr[step] = probability;
-        <span class="keyword">return</span> probability;
-    }
-    <span class="keyword">if</span> (step &gt; <span class="number">6</span>)
-    {
-        probability = <span class="number">0</span>;
-        <span class="keyword">for</span> (<span class="keyword">var</span> j:int = step - <span class="number">6</span>; j &lt; step; j++)
-        {
-            probability += getDiceSumProbability(j) / <span class="number">6</span>;
-        }
-        resultArr[step] = probability;
-        <span class="keyword">return</span> probability;
-    }
-    <span class="keyword">return</span> -<span class="number">1</span>;
-} 
-</code></pre><p>这里为了提高效率，将计算出的结果存入了Array中，否则执行一个 getDiceSumProbability()通常会调用6次 getDiceSumProbability()。6<em>6</em>6*6…这可不得了，存入结果后，计算1万以内也是无压力的，不过意义不大就是了（因为概率很快就会稳定）。</p>
-<p>—————————————分分分分分分哥哥哥哥哥哥哥————————————————————</p>
-<p>此题解完，还想扩展一下。无穷次前提下可以计算出概率了，如果有限次呢，比如，扔20次，刚好走到30格的概率是多少？<br>这依旧是一个递归问题，我们要在第20次的时候刚好走到30格，那么19步的时候就得走到24~29格，依旧是如此递归。<br>只是这次因为加入了次数这么一个变量，在存储结果的时候就不能光存概率，还得存入次数，同时计算量也变成原来的平方了，怎么保证效率呢？不废话了直接上代码：</p>
-<pre><code>private function getDiceSumProbablilityOnTime(rollTimes:<span class="keyword">int</span>, <span class="built_in">step</span>:<span class="keyword">int</span>):Number
-{
-    <span class="comment">//同样是用于存储结果提高效率</span>
-    <span class="keyword">if</span> (resultArr2[rollTimes])
-    {
-        <span class="keyword">if</span> (resultArr2[rollTimes][<span class="built_in">step</span>])
-        {
-            <span class="keyword">return</span> resultArr2[rollTimes][<span class="built_in">step</span>];
-        }
-    }
-    <span class="keyword">else</span>
-    {
-    resultArr2[rollTimes] = [];
-    }
-
-    <span class="comment">//只有两者都为0，概率才为1，只有一个为0的话概率一定是0</span>
-
-    <span class="keyword">if</span> (rollTimes == <span class="number">0</span>)
-    {
-        <span class="keyword">if</span> (<span class="built_in">step</span> == <span class="number">0</span>)
-        {
-            resultArr2[rollTimes][<span class="built_in">step</span>] = <span class="number">1</span>;
-            <span class="keyword">return</span> <span class="number">1</span>;
-        }
-        resultArr2[rollTimes][<span class="built_in">step</span>] = <span class="number">0</span>;
-        <span class="keyword">return</span> <span class="number">0</span>;
-    }
-
-    <span class="comment">//关键！分析rollTime和step之间的关系——rollTime&lt;=step&lt;=rollTime*6 ，如果不满足此条件则无需计算直接</span>
-    <span class="comment">// 返回0，能省不少时间</span>
-    <span class="keyword">if</span> (rollTimes * <span class="number">1</span>&lt;= <span class="built_in">step</span> &amp;&amp; rollTimes*<span class="number">6</span>&gt;=<span class="built_in">step</span>)
-    {
-        var probability:Number = <span class="number">0</span>;
-        <span class="keyword">if</span> (<span class="built_in">step</span> &lt;= <span class="number">6</span>)
-        {
-        <span class="keyword">for</span> (var i:<span class="keyword">int</span> = <span class="number">0</span>; i &lt; <span class="built_in">step</span>; i++)
-        {
-            probability += getDiceSumProbablilityOnTime(rollTimes - <span class="number">1</span>, i) / <span class="number">6</span>;
-        }
-        resultArr2[rollTimes][<span class="built_in">step</span>] = probability;
-        <span class="keyword">return</span> probability;
-    }
-
-    <span class="keyword">if</span> (<span class="built_in">step</span> &gt; <span class="number">6</span>)
-    {
-        probability = <span class="number">0</span>;
-        <span class="keyword">for</span> (var j:<span class="keyword">int</span> = <span class="built_in">step</span> - <span class="number">6</span>; j &lt; <span class="built_in">step</span>; j++)
-        {
-            probability += getDiceSumProbablilityOnTime(rollTimes - <span class="number">1</span>, j) / <span class="number">6</span>;
-        }
-        resultArr2[rollTimes][<span class="built_in">step</span>] = probability;
-        <span class="keyword">return</span> probability;
-        }
-    }
-
-    resultArr2[rollTimes][<span class="built_in">step</span>] = <span class="number">0</span>;
-    <span class="keyword">return</span> <span class="number">0</span>;
-} 
-</code></pre>
-        
-          <!-- show an end symbol if the article is fully displayed -->
-          <hr/>
-          <p class="article-more-link">
-            <a>end</a>
-          </p>
-        
-      
-    </div>
-    
-    <div class="article-info">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/递归/">递归</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/AS3/">AS3</a>
-	</div>
-
-
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Air中File类获取地址的研究" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2012/08/30/Air中File类获取地址的研究/" class="article-date">
-  	<time datetime="2012-08-29T16:35:00.000Z" itemprop="datePublished">2012-08-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/08/30/Air中File类获取地址的研究/">Air中File类获取地址的研究 </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Adobe帮助文档中说得比较松散和含糊，这是自己实验得到的结果 </p>
-<p>File.applicationDirectory </p>
-<pre><code>url = <span class="string">"app:/"</span>
-<span class="function"><span class="title">nativePath</span><span class="params">(IOS)</span></span> = <span class="string">"/var/mobile/Applications/6D8923A6-2B86-4C46-AE7A-7B6AFB349DDE/[app name].app"</span><span class="comment">//此文件夹是压缩包，只读</span>
-<span class="function"><span class="title">nativePath</span><span class="params">(WIN)</span></span> = [绝对路径]
-<span class="function"><span class="title">nativePath</span><span class="params">(Android)</span></span> = <span class="string">""</span> 
-</code></pre><p>注意： 不要在应用程序目录（AIR 应用程序的安装位置）中添加或删除内容。否则会损坏 AIR 应用程序，应用程序签名也将失效。AIR 默认不允许写入应用程序目录，因为该目录并非对所有操作系统上的所有用户帐户均为可写目录 </p>
-<p>File.applicationStorageDirectory </p>
-<pre><code>url = <span class="string">"app-storage:/"</span>
-<span class="function"><span class="title">nativePath</span><span class="params">(IOS)</span></span> = <span class="string">"/var/mobile/Applications/6D8923A6-2B86-4C46-AE7A-7B6AFB349DDE/Library/Application Support/[app id]/Local Store"</span><span class="comment">//可写</span>
-<span class="function"><span class="title">nativePath</span><span class="params">(WIN)</span></span> = <span class="string">"C:\Users\[UserName]\AppData\Roaming\[App Id]\Local Store"</span>
-<span class="function"><span class="title">nativePath</span><span class="params">(Android)</span></span> = <span class="string">"/data/data/air.[appid]/ [appid] /Local Store"</span>
-</code></pre><p>File.documentsDirectory </p>
-<pre><code>url = <span class="string">"file:///var/mobile/Applications/6D8923A6-2B86-4C46-AE7A-7B6AFB349DDE/Documents"</span><span class="comment">//可写</span>
-url (Android)= <span class="string">" file:///storage/emulated/0"</span>
-<span class="function"><span class="title">nativePath</span><span class="params">(IOS)</span></span>= <span class="string">"/var/mobile/Applications/6D8923A6-2B86-4C46-AE7A-7B6AFB349DDE/Documents"</span>
-<span class="function"><span class="title">nativePath</span><span class="params">(WIN)</span></span>= <span class="string">"d:\Documents\[UserName]\My Documents"</span>
-<span class="function"><span class="title">nativePath</span><span class="params">(Android)</span></span>= <span class="string">"/storage/emulated/0"</span>
-</code></pre><p>File.desktopDirectory</p>
-<pre><code>url = <span class="string">"file:///var/mobile/Applications/6D8923A6-2B86-4C46-AE7A-7B6AFB349DDE/Desktop"</span>
-<span class="function"><span class="title">nativePath</span><span class="params">(IOS)</span></span>= <span class="string">"/var/mobile/Applications/6D8923A6-2B86-4C46-AE7A-7B6AFB349DDE/Desktop"</span><span class="comment">//可写</span>
-<span class="function"><span class="title">nativePath</span><span class="params">(WIN)</span></span>= <span class="string">"d:\Documents\[UserName]\Desktop"</span>
-</code></pre><p>File.userDirectory </p>
-<pre><code>url = <span class="string">"file:///var/mobile/Applications/6D8923A6-2B86-4C46-AE7A-7B6AFB349DDE"</span>
-<span class="function"><span class="title">url</span><span class="params">(Android)</span></span> = <span class="string">"file:///storage/emulated/0"</span>
-<span class="function"><span class="title">nativePath</span><span class="params">(IOS)</span></span>= <span class="string">"/var/mobile/Applications/6D8923A6-2B86-4C46-AE7A-7B6AFB349DDE"</span><span class="comment">//可写</span>
-<span class="function"><span class="title">nativePath</span><span class="params">(WIN)</span></span>= <span class="string">"C:\Users\[UserName]"</span>
-<span class="function"><span class="title">nativePath</span><span class="params">(Android)</span></span>= <span class="string">" /storage/emulated/0"</span>
-</code></pre><p>File.cacheDirectory </p>
-<pre><code><span class="function"><span class="title">nativePath</span><span class="params">(Andorid)</span></span> = /data/data/air. [appid] /cache
-<span class="function"><span class="title">url</span><span class="params">( Andorid )</span></span> = file:<span class="comment">///data/data/air. [appid] /cache</span>
-</code></pre><p>由于AIR限制太多，实际操作中最好使用类似new File(File.applicationDirectory.resolvePath(“sb.jpg”).nativePath)的方式来获取File对象，保证最大权限</p>
-<p>作者：Rainssong<br>来源：<a href="http://blog.sina.com.cn/rainssong" target="_blank" rel="external">http://blog.sina.com.cn/rainssong</a><br>转载请保留作者信息 </p>
-
-        
-          <!-- show an end symbol if the article is fully displayed -->
-          <hr/>
-          <p class="article-more-link">
-            <a>end</a>
-          </p>
-        
-      
-    </div>
-    
-    <div class="article-info">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Air/">Air</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/AS3/">AS3</a>
-	</div>
-
-
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-    <article id="post-效率最高的数组随机排序算法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2012/08/30/效率最高的数组随机排序算法/" class="article-date">
-  	<time datetime="2012-08-29T16:29:00.000Z" itemprop="datePublished">2012-08-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/08/30/效率最高的数组随机排序算法/">效率最高的数组随机排序算法（as3）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>作者：rainssong</p>
-<p>把一个数组随机打乱，可以看做顺序排序的 逆运算 ，顺序排序算法很多，随机排序也不少，下面列举个人觉得最好的三种。（感谢9ria论坛的朋友提供思路）</p>
-<p>算法列表：<br>1.自身插入法 </p>
-<pre><code><span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">randomArr</span><span class="params">(arr:Array)</span><span class="type">:Array</span>
-</span>{
-    <span class="keyword">var</span> outputArr:Array = arr.slice();
-    <span class="keyword">var</span> i:int = outputArr.length;
-    <span class="keyword">while</span> (i)
-    {
-        outputArr.push(outputArr.splice(int(Math.random() * i--), <span class="number">1</span>)[<span class="number">0</span>]);
-    }
-    <span class="keyword">return</span> outputArr;
-}
-</code></pre><p>通常插入法是将随机移出来的数扔到新的数组里，但是这么写的牛逼之处在于扔自己数组后面了，节省了效率：）。此法在数组较短时效率高，超过200效率就不如传统插入法了。</p>
-<p>2.传统插入法 </p>
-<pre><code><span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">randomArr</span><span class="params">(arr:Array)</span><span class="type">:Array</span>
-</span>{
-    <span class="keyword">var</span> cloneArr:Array = arr.slice();
-    <span class="keyword">var</span> outputArr:Array = [];
-    <span class="keyword">var</span> i:int = cloneArr.length;
-    <span class="keyword">while</span> (i)
-    {
-        outputArr.push(cloneArr.splice(int(Math.random() * i--), <span class="number">1</span>)[<span class="number">0</span>]);
-    }
-    <span class="keyword">return</span> outputArr;
-}
-</code></pre><p>在数组较长（200以上）时效率比自身插入法高，因为短数组操作起来更快。</p>
-<p>3.选择法 </p>
-<pre><code><span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">randomArr</span><span class="params">(arr:Array)</span><span class="type">:Array</span>
-</span>{
-    <span class="keyword">var</span> outputArr:Array = arr.slice();
-    <span class="keyword">var</span> i:int = outputArr.length;
-    <span class="keyword">var</span> temp:*;
-    <span class="keyword">var</span> indexA:int;
-    <span class="keyword">var</span> indexB:int;
-
-    <span class="keyword">while</span> (i)
-    {
-        indexA = i-<span class="number">1</span>;
-        indexB = Math.floor(Math.random() * i);
-        i--;
-
-        <span class="keyword">if</span> (indexA == indexB) <span class="keyword">continue</span>;
-        temp = outputArr[indexA];
-        outputArr[indexA] = outputArr[indexB];
-        outputArr[indexB] = temp;
-    }
-
-    <span class="keyword">return</span> outputArr;
-}
-</code></pre><p>选择排序法就是按照顺序从余下数中选出最小（大）的数，和顺序位置的数字交换，反复进行。此法最多可能会交换n-1次，比如[4,1,2,3]递增排序中的4就需要挪3次，当然最少一次也不用。但是随机算法循环次数无法浮动，必须是固定的，怎么办呢？没有关系，我们可以引入废操作，位置已经摆对的数自己和自己交换，这样就可以让所有顺序排序都成为n-1步走。<br>反过来想就明白了，从0开始每个位置和后面的随机位置交换，也可以和自己交换，直到n-2和n-1（或n-2自己交换），就可以得到一个随机数组。<br>（说得轻松，我可是抓破头皮- -b）</p>
-<p>效率比较： </p>
-<p>利用1-100的顺序数组进行测试，执行10000次所用的时间分别为。<br>自身插入法：1654<br>传统插入法： 2574<br>选择法： 594</p>
-<p>注意：利用sort()实现随机算法得到的结果并不能保证概率平均，不建议使用。 </p>
-<p>结论：<br>选择法&gt;传统插入法（通用性好）&gt;自身插入法 </p>
-
-        
-          <!-- show an end symbol if the article is fully displayed -->
-          <hr/>
-          <p class="article-more-link">
-            <a>end</a>
-          </p>
-        
-      
-    </div>
-    
-    <div class="article-info">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随机/">随机</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/AS3/">AS3</a>
-	</div>
-
-
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>
@@ -922,7 +889,7 @@ url (Android)= <span class="string">" file:///storage/emulated/0"</span>
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2015 rainssong
+    		&copy; 2016 rainssong
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
