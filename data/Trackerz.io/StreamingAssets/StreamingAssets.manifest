@@ -1,0 +1,49 @@
+ManifestFileVersion: 0
+CRC: 2798493034
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: effect/effect01.ab
+      Dependencies: {}
+    Info_1:
+      Name: prefabs/shadow.ab
+      Dependencies: {}
+    Info_2:
+      Name: prefabs/ground.ab
+      Dependencies: {}
+    Info_3:
+      Name: atlas/trackeratlas.ab
+      Dependencies: {}
+    Info_4:
+      Name: prefabs/tracker.ab
+      Dependencies: {}
+    Info_5:
+      Name: prefabs/border.ab
+      Dependencies: {}
+    Info_6:
+      Name: effect/effect02.ab
+      Dependencies: {}
+    Info_7:
+      Name: prefabs/track.ab
+      Dependencies: {}
+    Info_8:
+      Name: prefabs/rankslider.ab
+      Dependencies: {}
+    Info_9:
+      Name: atlas/wallatlas.ab
+      Dependencies: {}
+    Info_10:
+      Name: prefabs/trackerfollowui.ab
+      Dependencies: {}
+    Info_11:
+      Name: config.ab.ab
+      Dependencies: {}
+    Info_12:
+      Name: prefabs/bullet.ab
+      Dependencies: {}
+    Info_13:
+      Name: prefabs/trackcorner.ab
+      Dependencies: {}
+    Info_14:
+      Name: atlas/battleuiatlas.ab
+      Dependencies: {}

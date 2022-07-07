@@ -1,0 +1,33 @@
+ManifestFileVersion: 0
+CRC: 3862783836
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f3661439a0ed1e6116835936ce131f91
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6f4caf946e20142aedf5aca21310a86e
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: c55172182c8e99f4ba088e6b9102d7df, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Warehouser/Effect/effect02.prefab
+Dependencies: []

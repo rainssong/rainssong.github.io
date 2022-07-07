@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 2294932501
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4491db609d5f154018f2cb0a38aaa95c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 4f68678424832958d416c00ebd8afc77
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Warehouser/Prefabs/Border.prefab
+Dependencies: []

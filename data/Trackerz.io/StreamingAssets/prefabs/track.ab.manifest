@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 1891101532
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b17e9cc63e8ef9cf57c7fa0c1101a32e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 233c4020346a725de763ab4d6761da04
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Warehouser/Prefabs/Track.prefab
+Dependencies: []

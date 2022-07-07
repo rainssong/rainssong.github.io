@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 3260009349
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: fbb1160f60e0ef309c324ad85abd29a6
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 4f68678424832958d416c00ebd8afc77
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Warehouser/Prefabs/Shadow.prefab
+Dependencies: []

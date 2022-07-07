@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 475915175
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c5665c426edd2ef70e4a1f9d0c7a7df1
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 233c4020346a725de763ab4d6761da04
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Warehouser/Prefabs/TrackCorner.prefab
+Dependencies: []

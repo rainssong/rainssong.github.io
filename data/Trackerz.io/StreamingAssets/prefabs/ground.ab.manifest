@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 3623895422
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c213c5a3c8abdbb7af0b639145edc37b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 4f68678424832958d416c00ebd8afc77
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Warehouser/Prefabs/Ground.prefab
+Dependencies: []

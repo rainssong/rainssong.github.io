@@ -1,0 +1,33 @@
+ManifestFileVersion: 0
+CRC: 639948714
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f1a5b4a9371771d39f946b2d98d9bfd2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 907c1fdebde0fc8f08178bbb7de13f62
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2d46dc617bd114042936a9cc9c301943, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Warehouser/Prefabs/Bullet.prefab
+Dependencies: []

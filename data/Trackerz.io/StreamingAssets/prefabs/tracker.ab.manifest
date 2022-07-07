@@ -1,0 +1,31 @@
+ManifestFileVersion: 0
+CRC: 892697115
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 159d3b5faaf3d067d9e30f25f86cb051
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fa41532786f74f61771155590862b708
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 96
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0809de379981e444ab1a351fef152edd, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Warehouser/Prefabs/Tracker.prefab
+Dependencies: []
